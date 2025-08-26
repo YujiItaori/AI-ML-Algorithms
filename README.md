@@ -6,7 +6,9 @@ This repository contains implementations of various **Machine Learning algorithm
 
 ## Current Implementation
 
-So far, this repository includes a detailed implementation of **Linear Regression**. The project covers:
+So far, this repository includes detailed implementations of:
+
+Linear Regression
 
 - Loading and exploring a customer dataset
 - Visualizing relationships between variables using Seaborn
