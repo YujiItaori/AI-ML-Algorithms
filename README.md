@@ -100,7 +100,6 @@ For questions or collaboration, please reach out on GitHub or through my profile
 
 Thank you for visiting my AI-ML-Algorithms repository!
 
-```
 
 "The real risk of AI isn’t malice, but competence. A highly intelligent AI can achieve its goals in ways we never intended."
 
