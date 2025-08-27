@@ -130,25 +130,30 @@ The objective function optimized in Lasso is:
 Effective for high-dimensional datasets with many irrelevant features, common in bioinformatics, text data, and any problem where feature selection is critical.
 
 
----
-
 ## Structure
 
-```
-AI-ML-Algorithms/
-│
-├── Linear Regression/               # Linear Regression algorithm implementation
-│   ├── Ecommerce Customers/         # Data folder containing the dataset
-│   │   └── Linear Regression.zip    # Zipped dataset file
-│   └── linear_regression.ipynb      # Jupyter notebook for Linear Regression
-├── Logistic Regression/             # Logistic Regression algorithm implementation
-│   └── logistic_regression.ipynb    # Jupyter notebook for Logistic Regression
-├── Random Forest Regression/        # Random Forest Regression algorithm implementation
-│   └── random_forest_regression.ipynb  # Jupyter notebook for Random Forest Regression
-├── .gitignore                      # Git ignore file
-├── requirements.txt                # Project dependencies
-```
 
+```
+Lasso Regression/                   # Lasso Regression algorithm implementation
+│   └── lasso_regression.ipynb      # Jupyter notebook for Lasso Regression
+
+Linear Regression/                  # Linear Regression algorithm implementation
+│   ├── Ecommerce Customers/        # Folder containing Linear Regression dataset(s)
+│   │   └── Linear Regression.zip   # Zipped dataset file
+│   └── linear_regression.ipynb     # Jupyter notebook for Linear Regression
+
+Logistic Regression/                # Logistic Regression algorithm implementation
+│   ├── data.csv                    # CSV dataset for logistic regression
+│   ├── Logistic Regression.zip     # Zipped dataset file
+│   └── logistic_regression.ipynb   # Jupyter notebook for Logistic Regression
+
+Random Forest/                      # Random Forest Regression algorithm implementation
+│   ├── DiseaseAndSymptoms.csv      # CSV dataset for random forest project
+│   └── random_forest.ipynb         # Jupyter notebook for Random Forest Regression
+
+Ridge Regression/                   # Ridge Regression algorithm implementation
+│   └── ridge_regression.ipynb      # Jupyter notebook for Ridge Regression
+```
 ---
 
 ## Getting Started
