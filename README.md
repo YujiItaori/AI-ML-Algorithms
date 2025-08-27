@@ -4,27 +4,131 @@ This repository contains implementations of various **Machine Learning algorithm
 
 ---
 
-## Current Implementation
+## Implementations
 
-So far, this repository includes detailed implementations of:
+### Linear Regression
+**Explanation:**  
+Linear Regression is a foundational supervised machine learning algorithm used for predicting a continuous target variable based on one or more input features. It assumes there is a linear relationship between the independent variables (features) and the dependent variable (target). The model fits a straight line (or hyperplane in multiple dimensions) that best represents the data by minimizing the sum of squared differences between actual and predicted values.
 
-Linear Regression
+The equation for multiple linear regression is:  
+\[
+\hat{y} = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \cdots + \theta_n x_n
+\]  
+where \(\hat{y}\) is the predicted value, \(x_i\) are the features, and \(\theta_i\) are the coefficients learned from the data.
 
-- Loading and exploring a customer dataset
-- Visualizing relationships between variables using Seaborn
-- Preparing data and splitting it into training and testing sets
-- Training a multivariable Linear Regression model using Scikit-Learn
-- Detailed model evaluation with coefficients, R-squared score, and residual analysis
-- Prediction and evaluation on test data with error metrics (MAE, MSE, RMSE)
-- Conclusion with insights on feature importance and interpretation
+Linear regression is widely used because of its simplicity, interpretability, and efficiency. It provides intuitive insights into the relationship between predictors and the outcome, making it a great starting point for regression tasks.
 
-Logistic Regression
+**Pros:**  
+- Easy to understand and explain.  
+- Fast training and prediction, scalable to large datasets.  
+- Provides explicit coefficients representing feature importance.  
+- Performs well when the true relationship is approximately linear.
 
-Logistic Regression is a supervised machine learning algorithm primarily used for binary classification problems, where the output variable is categorical (such as 0/1, Yes/No). It predicts the probability that an input belongs to a particular class by using the logistic (sigmoid) function, which maps any real-valued number into a value between 0 and 1. This model enables classification based on a threshold probability, commonly 0.5. Logistic Regression is widely used in fields like medical diagnosis, customer churn prediction, and fraud detection due to its simplicity and interpretability.
+**Cons:**  
+- Assumes linearity, which may not hold for complex data.  
+- Sensitive to outliers that can disproportionately influence the fit.  
+- Does not handle multicollinearity or interactions without additional processing.
 
-Random Forest Regression
+**Use Cases:**  
+Ideal for problems where the relationship between variables is expected to be linear, such as predicting house prices based on square footage, sales forecasting, or any scenario requiring numeric prediction from straightforward features.
 
-Random Forest Regression is an ensemble learning method based on decision trees. It operates by building multiple decision trees during training and outputting the average prediction of the individual trees to improve predictive accuracy and control overfitting. Random Forest can handle large datasets with higher dimensionality and is robust to noise and outliers. It is especially useful for regression tasks where relationships between variables are non-linear and complex, providing a versatile modeling approach beyond linear models.
+---
+
+### Logistic Regression
+**Explanation:**  
+Logistic Regression is a supervised learning algorithm used primarily for binary classification problems. Unlike linear regression, it outputs probabilities by applying the logistic (sigmoid) function to a linear combination of input features, squashing real values into the range [0,1]. This probability can then be thresholded (commonly at 0.5) to assign class labels.
+
+The model estimates the odds of the positive class via:  
+\[
+p = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \dots + \beta_n x_n)}}
+\]  
+where \(p\) is the probability of the positive class, and \(\beta_i\) are model parameters.
+
+It is widely favored for its simplicity, efficiency, and ease of interpretation. Coefficients indicate the direction and strength of feature influence on the likelihood of belonging to a class.
+
+**Pros:**  
+- Simple, interpretable classification model.  
+- Outputs calibrated probabilities useful for decision-making.  
+- Efficient and effective on linearly separable classes.  
+- Works well on relatively small or medium-sized datasets.
+
+**Cons:**  
+- Assumes a linear decision boundary; limited with complex patterns.  
+- Performance degrades if classes are not linearly separable.  
+- Requires feature engineering for non-linear or high-dimensional data.
+
+**Use Cases:**  
+Common in medical diagnosis, credit scoring, spam detection, and customer churn prediction—any binary classification task requiring explainability and probability estimates.
+
+---
+
+### Random Forest Regression
+**Explanation:**  
+Random Forest Regression is an ensemble learning method that builds a multitude of decision trees during training and outputs the mean prediction of the individual trees. It can capture complex non-linear relationships and interactions among features without requiring explicit feature engineering.
+
+Each tree is trained on a bootstrap sample of the data and considers a random subset of features at each split, increasing diversity and reducing overfitting compared to a single decision tree.
+
+**Pros:**  
+- Handles non-linear and complex relationships well.  
+- Robust to noisy data and outliers.  
+- Automatically captures feature interactions.  
+- Provides feature importance scores.
+
+**Cons:**  
+- Computationally intensive and slower to train and predict.  
+- Results are less interpretable than linear models; often considered a black box.  
+- Requires hyperparameter tuning to achieve optimal performance.
+
+**Use Cases:**  
+Appropriate for datasets with complicated patterns and relationships, common in finance, biology, ecology, and any regression setting where the underlying process is not linear.
+
+---
+
+### Ridge Regression
+**Explanation:**  
+Ridge Regression is a linear regression variant that incorporates L2 regularization to penalize large coefficients. By adding a penalty term proportional to the square of the coefficients, it shrinks coefficients and thus reduces model complexity and collinearity issues. It is especially useful when predictors are highly correlated.
+
+The objective function optimized in Ridge is:  
+\[
+\min_{\theta} \sum_{i=1}^n (y_i - \hat{y}_i)^2 + \alpha \sum_{j=1}^p \theta_j^2
+\]  
+where \(\alpha\) controls the strength of regularization.
+
+**Pros:**  
+- Reduces overfitting and improves model generalization.  
+- Handles multicollinearity effectively by shrinking coefficients.  
+- Keeps all features in the model (does not perform feature selection).
+
+**Cons:**  
+- Does not produce sparse models; no automatic feature elimination.  
+- Requires tuning of the regularization parameter \(\alpha\).
+
+**Use Cases:**  
+Well-suited for datasets with many correlated features or when the number of features is large relative to the number of samples, improving stability and predictive performance of linear models.
+
+---
+
+### Lasso Regression
+**Explanation:**  
+Lasso Regression adds L1 regularization to linear regression, which adds a penalty equal to the absolute value of the magnitude of coefficients. This encourages sparsity, shrinking some coefficients exactly to zero, thus performing implicit feature selection and simplifying models.
+
+The objective function optimized in Lasso is:  
+\[
+\min_{\theta} \sum_{i=1}^n (y_i - \hat{y}_i)^2 + \alpha \sum_{j=1}^p |\theta_j|
+\]
+
+**Pros:**  
+- Performs regularization and feature selection simultaneously.  
+- Produces simpler and more interpretable models.  
+- Can improve prediction accuracy by reducing overfitting.
+
+**Cons:**  
+- May struggle when features are highly correlated (tending to pick one arbitrarily).  
+- Requires careful tuning of \(\alpha\) for best results.
+
+**Use Cases:**  
+Effective for high-dimensional datasets with many irrelevant features, common in bioinformatics, text data, and any problem where feature selection is critical.
+
 
 ---
 
