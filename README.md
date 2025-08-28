@@ -6,6 +6,43 @@ This repository contains implementations of various **Machine Learning algorithm
 
 ## Implementations
 
+
+### TensorFlow
+
+**Explanation:**
+TensorFlow is a comprehensive, open-source platform developed by Google Brain for building and deploying machine learning and deep learning models. It uses a flexible architecture based on dataflow graphs, where computations are represented as nodes (operations) and edges (multi-dimensional data arrays called tensors) flow between them. TensorFlow supports both eager execution—where operations are evaluated immediately—and graph execution—where operations are compiled as a static computation graph for optimized performance.
+
+TensorFlow’s core strength lies in its scalability across multiple platforms, from desktops and servers to mobile devices and edge hardware. It supports distributed computing, allowing models to be trained efficiently on large datasets using CPUs, GPUs, and specialized Tensor Processing Units (TPUs).
+
+The platform integrates tightly with Keras, a high-level API that simplifies building neural networks, and provides tools for model training, evaluation, deployment, and optimization, including TensorFlow Lite for mobile and embedded devices, and TensorFlow Serving for production environments. AutoDifferentiation enables automatic computation of gradients, which is critical for training deep neural networks.
+
+**Pros:**
+
+Highly scalable: runs on CPUs, GPUs, TPUs, and distributed environments.
+
+Rich ecosystem including Keras, TensorFlow Lite, TensorFlow.js, and TensorFlow Extended (TFX) for production.
+
+Supports flexible execution modes (eager and graph execution).
+
+Automatic differentiation simplifies gradient calculations during training.
+
+Extensive tooling for model building, debugging, and deployment.
+
+**Cons:**
+
+Can have a steep learning curve due to its complexity and breadth.
+
+Debugging graph execution can be more challenging compared to eager mode or simpler frameworks.
+
+Large framework size and overhead may be excessive for very small tasks.
+
+**Use Cases:**
+TensorFlow is widely used for a variety of machine learning applications—from natural language processing and computer vision to time-series forecasting and reinforcement learning. It is suitable for both research and production, powering everything from academic experiments to large-scale industrial AI deployments including mobile apps, web services, and edge computing solutions.
+
+
+
+---
+
 ### Linear Regression
 **Explanation:**  
 Linear Regression is a foundational supervised machine learning algorithm used for predicting a continuous target variable based on one or more input features. It assumes there is a linear relationship between the independent variables (features) and the dependent variable (target). The model fits a straight line (or hyperplane in multiple dimensions) that best represents the data by minimizing the sum of squared differences between actual and predicted values.
