@@ -129,32 +129,87 @@ The objective function optimized in Lasso is:
 **Use Cases:**  
 Effective for high-dimensional datasets with many irrelevant features, common in bioinformatics, text data, and any problem where feature selection is critical.
 
+---
 
-## Structure
+### Support Vector Regression (SVR)
+**Explanation:**
+Support Vector Regression (SVR) is an extension of Support Vector Machines (SVM) tailored for regression tasks. Instead of classifying data, SVR finds a function that approximates the relationship between input features and continuous target values with an emphasis on creating a margin (called the epsilon-insensitive tube) around the predicted function within which errors are not penalized. The goal is to fit as many data points as possible within this margin, minimizing prediction error without overfitting.
 
+SVR can use different kernel functions (linear, polynomial, RBF) to map input data into higher-dimensional spaces, allowing it to capture complex, nonlinear relationships. The choice of kernel and model hyperparameters like C (regularization strength) and epsilon (width of the margin) controls the balance between model complexity and tolerance for prediction errors.
 
-```
+**Pros:**
 
-Lasso Regression/                   # Lasso Regression algorithm implementation
-│   └── lasso_regression.ipynb      # Jupyter notebook for Lasso Regression
+Can capture complex nonlinear relationships using kernels.
 
-Linear Regression/                  # Linear Regression algorithm implementation
-│   ├── Ecommerce Customers/        # Folder containing Linear Regression dataset(s)
-│   │   └── Linear Regression.zip   # Zipped dataset file
-│   └── linear_regression.ipynb     # Jupyter notebook for Linear Regression
+Robust to outliers through the epsilon margin.
 
-Logistic Regression/                # Logistic Regression algorithm implementation
-│   ├── data.csv                    # CSV dataset for logistic regression
-│   ├── Logistic Regression.zip     # Zipped dataset file
-│   └── logistic_regression.ipynb   # Jupyter notebook for Logistic Regression
+Effective in high-dimensional feature spaces.
 
-Random Forest/                      # Random Forest Regression algorithm implementation
-│   ├── DiseaseAndSymptoms.csv      # CSV dataset for random forest project
-│   └── random_forest.ipynb         # Jupyter notebook for Random Forest Regression
+**Cons:**
 
-Ridge Regression/                   # Ridge Regression algorithm implementation
-│   └── ridge_regression.ipynb      # Jupyter notebook for Ridge Regression
-```
+Selecting appropriate kernel and hyperparameters requires care.
+
+Training can be computationally expensive on large datasets.
+
+Less interpretable than simpler linear models.
+
+**Use Cases:**
+SVR is well-suited for regression problems with nonlinear patterns, such as predicting stock prices, environmental measurements, or any scenario where relationships are complex but a robust regression model is needed.
+
+---
+
+### Gradient Boosted Regression Trees
+**Explanation:**
+Gradient Boosted Trees (GBT) are an ensemble learning method that builds a strong predictive model by combining many weak learners, typically shallow decision trees, in a stage-wise fashion. Each successive tree is trained to fit the residual errors (gradients) of the combined prior trees, gradually improving overall prediction accuracy.
+
+GBT models are powerful for capturing nonlinear dependencies and interactions among features since each new tree focuses on correcting the mistakes of the previous ensemble. This sequential learning approach allows for flexibility and strong predictive performance in complex datasets.
+
+**Pros:**
+
+High prediction accuracy, often outperforming other algorithms.
+
+Handles mixed data types and complex feature interactions well.
+
+Can be tuned by adjusting number of trees, learning rate, tree depth for performance optimization.
+
+**Cons:**
+
+Training can be slower compared to simpler models.
+
+Prone to overfitting if not properly tuned.
+
+Less interpretable than single decision trees.
+
+**Use Cases:**
+Ideal for regression problems where high accuracy is required on complex, non-linear datasets such as finance, insurance pricing, and many real-world tabular prediction tasks.
+
+---
+
+### Decision Tree Regression
+**Explanation:**
+Decision Tree Regression is a non-parametric supervised learning method that predicts continuous numerical outputs by recursively partitioning the feature space into regions. The algorithm splits data based on feature thresholds that minimize prediction error within each partition (e.g., mean squared error).
+
+The final prediction for a sample is the average target value of samples within the relevant leaf node. Decision trees are intuitive and easy to visualize, capturing non-linear relationships without needing feature scaling.
+
+**Pros:**
+
+Simple to understand and interpret visually.
+
+Captures nonlinear relationships and feature interactions.
+
+Requires little data preprocessing.
+
+**Cons:**
+
+Prone to overfitting if trees grow too deep.
+
+Sensitive to small variations in data, causing unstable splits.
+
+Typically less accurate than ensemble methods.
+
+**Use Cases:**
+Useful as baseline models for regression tasks, exploratory data analysis, and scenarios where model interpretability is crucial, such as basic pricing predictions or preliminary modeling before ensembles.
+
 ---
 
 ## Getting Started
