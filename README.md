@@ -6,6 +6,43 @@ This repository contains implementations of various **Machine Learning algorithm
 
 ## Implementations
 
+
+### TensorFlow
+
+**Explanation:**
+TensorFlow is a comprehensive, open-source platform developed by Google Brain for building and deploying machine learning and deep learning models. It uses a flexible architecture based on dataflow graphs, where computations are represented as nodes (operations) and edges (multi-dimensional data arrays called tensors) flow between them. TensorFlow supports both eager execution—where operations are evaluated immediately—and graph execution—where operations are compiled as a static computation graph for optimized performance.
+
+TensorFlow’s core strength lies in its scalability across multiple platforms, from desktops and servers to mobile devices and edge hardware. It supports distributed computing, allowing models to be trained efficiently on large datasets using CPUs, GPUs, and specialized Tensor Processing Units (TPUs).
+
+The platform integrates tightly with Keras, a high-level API that simplifies building neural networks, and provides tools for model training, evaluation, deployment, and optimization, including TensorFlow Lite for mobile and embedded devices, and TensorFlow Serving for production environments. AutoDifferentiation enables automatic computation of gradients, which is critical for training deep neural networks.
+
+**Pros:**
+
+Highly scalable: runs on CPUs, GPUs, TPUs, and distributed environments.
+
+Rich ecosystem including Keras, TensorFlow Lite, TensorFlow.js, and TensorFlow Extended (TFX) for production.
+
+Supports flexible execution modes (eager and graph execution).
+
+Automatic differentiation simplifies gradient calculations during training.
+
+Extensive tooling for model building, debugging, and deployment.
+
+**Cons:**
+
+Can have a steep learning curve due to its complexity and breadth.
+
+Debugging graph execution can be more challenging compared to eager mode or simpler frameworks.
+
+Large framework size and overhead may be excessive for very small tasks.
+
+**Use Cases:**
+TensorFlow is widely used for a variety of machine learning applications—from natural language processing and computer vision to time-series forecasting and reinforcement learning. It is suitable for both research and production, powering everything from academic experiments to large-scale industrial AI deployments including mobile apps, web services, and edge computing solutions.
+
+
+
+---
+
 ### Linear Regression
 **Explanation:**  
 Linear Regression is a foundational supervised machine learning algorithm used for predicting a continuous target variable based on one or more input features. It assumes there is a linear relationship between the independent variables (features) and the dependent variable (target). The model fits a straight line (or hyperplane in multiple dimensions) that best represents the data by minimizing the sum of squared differences between actual and predicted values.
@@ -129,32 +166,87 @@ The objective function optimized in Lasso is:
 **Use Cases:**  
 Effective for high-dimensional datasets with many irrelevant features, common in bioinformatics, text data, and any problem where feature selection is critical.
 
+---
 
-## Structure
+### Support Vector Regression (SVR)
+**Explanation:**
+Support Vector Regression (SVR) is an extension of Support Vector Machines (SVM) tailored for regression tasks. Instead of classifying data, SVR finds a function that approximates the relationship between input features and continuous target values with an emphasis on creating a margin (called the epsilon-insensitive tube) around the predicted function within which errors are not penalized. The goal is to fit as many data points as possible within this margin, minimizing prediction error without overfitting.
 
+SVR can use different kernel functions (linear, polynomial, RBF) to map input data into higher-dimensional spaces, allowing it to capture complex, nonlinear relationships. The choice of kernel and model hyperparameters like C (regularization strength) and epsilon (width of the margin) controls the balance between model complexity and tolerance for prediction errors.
 
-```
+**Pros:**
 
-Lasso Regression/                   # Lasso Regression algorithm implementation
-│   └── lasso_regression.ipynb      # Jupyter notebook for Lasso Regression
+Can capture complex nonlinear relationships using kernels.
 
-Linear Regression/                  # Linear Regression algorithm implementation
-│   ├── Ecommerce Customers/        # Folder containing Linear Regression dataset(s)
-│   │   └── Linear Regression.zip   # Zipped dataset file
-│   └── linear_regression.ipynb     # Jupyter notebook for Linear Regression
+Robust to outliers through the epsilon margin.
 
-Logistic Regression/                # Logistic Regression algorithm implementation
-│   ├── data.csv                    # CSV dataset for logistic regression
-│   ├── Logistic Regression.zip     # Zipped dataset file
-│   └── logistic_regression.ipynb   # Jupyter notebook for Logistic Regression
+Effective in high-dimensional feature spaces.
 
-Random Forest/                      # Random Forest Regression algorithm implementation
-│   ├── DiseaseAndSymptoms.csv      # CSV dataset for random forest project
-│   └── random_forest.ipynb         # Jupyter notebook for Random Forest Regression
+**Cons:**
 
-Ridge Regression/                   # Ridge Regression algorithm implementation
-│   └── ridge_regression.ipynb      # Jupyter notebook for Ridge Regression
-```
+Selecting appropriate kernel and hyperparameters requires care.
+
+Training can be computationally expensive on large datasets.
+
+Less interpretable than simpler linear models.
+
+**Use Cases:**
+SVR is well-suited for regression problems with nonlinear patterns, such as predicting stock prices, environmental measurements, or any scenario where relationships are complex but a robust regression model is needed.
+
+---
+
+### Gradient Boosted Regression Trees
+**Explanation:**
+Gradient Boosted Trees (GBT) are an ensemble learning method that builds a strong predictive model by combining many weak learners, typically shallow decision trees, in a stage-wise fashion. Each successive tree is trained to fit the residual errors (gradients) of the combined prior trees, gradually improving overall prediction accuracy.
+
+GBT models are powerful for capturing nonlinear dependencies and interactions among features since each new tree focuses on correcting the mistakes of the previous ensemble. This sequential learning approach allows for flexibility and strong predictive performance in complex datasets.
+
+**Pros:**
+
+High prediction accuracy, often outperforming other algorithms.
+
+Handles mixed data types and complex feature interactions well.
+
+Can be tuned by adjusting number of trees, learning rate, tree depth for performance optimization.
+
+**Cons:**
+
+Training can be slower compared to simpler models.
+
+Prone to overfitting if not properly tuned.
+
+Less interpretable than single decision trees.
+
+**Use Cases:**
+Ideal for regression problems where high accuracy is required on complex, non-linear datasets such as finance, insurance pricing, and many real-world tabular prediction tasks.
+
+---
+
+### Decision Tree Regression
+**Explanation:**
+Decision Tree Regression is a non-parametric supervised learning method that predicts continuous numerical outputs by recursively partitioning the feature space into regions. The algorithm splits data based on feature thresholds that minimize prediction error within each partition (e.g., mean squared error).
+
+The final prediction for a sample is the average target value of samples within the relevant leaf node. Decision trees are intuitive and easy to visualize, capturing non-linear relationships without needing feature scaling.
+
+**Pros:**
+
+Simple to understand and interpret visually.
+
+Captures nonlinear relationships and feature interactions.
+
+Requires little data preprocessing.
+
+**Cons:**
+
+Prone to overfitting if trees grow too deep.
+
+Sensitive to small variations in data, causing unstable splits.
+
+Typically less accurate than ensemble methods.
+
+**Use Cases:**
+Useful as baseline models for regression tasks, exploratory data analysis, and scenarios where model interpretability is crucial, such as basic pricing predictions or preliminary modeling before ensembles.
+
 ---
 
 ## Getting Started
