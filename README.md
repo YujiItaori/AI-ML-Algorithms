@@ -39,8 +39,6 @@ Large framework size and overhead may be excessive for very small tasks.
 **Use Cases:**
 TensorFlow is widely used for a variety of machine learning applications—from natural language processing and computer vision to time-series forecasting and reinforcement learning. It is suitable for both research and production, powering everything from academic experiments to large-scale industrial AI deployments including mobile apps, web services, and edge computing solutions.
 
-
-
 ---
 
 ### Linear Regression
@@ -246,6 +244,94 @@ Typically less accurate than ensemble methods.
 
 **Use Cases:**
 Useful as baseline models for regression tasks, exploratory data analysis, and scenarios where model interpretability is crucial, such as basic pricing predictions or preliminary modeling before ensembles.
+
+---
+
+### Gradient Boosted Classification Trees  
+
+**Explanation:**  
+
+Gradient Boosted Classification Trees combine multiple weak learners, typically shallow decision trees, in a sequential manner to build a strong classifier. Each new tree is trained to correct the errors of the combined previous trees by fitting the gradients of the loss function, improving model accuracy iteratively. This boosting approach reduces bias and variance, making it effective for complex classification tasks.  
+
+**Pros:**  
+- High classification accuracy and robustness to overfitting if tuned well.  
+- Handles heterogeneous data types and complex feature interactions.  
+- Flexible loss functions can be used to optimize for different objectives.  
+
+**Cons:**  
+- Computationally intensive and slower to train than simpler models.  
+- Requires careful hyperparameter tuning to avoid overfitting.  
+- Less interpretable compared to single decision trees or linear models.  
+
+**Use Cases:**  
+
+Widely used for classification problems in finance (fraud detection), marketing (customer segmentation), and competitions like Kaggle where model accuracy is critical.
+
+---
+
+### K-Means Clustering  
+
+**Explanation:**  
+
+K-Means is an unsupervised learning algorithm used to partition data into k distinct clusters based on feature similarity. It works iteratively by assigning data points to the nearest cluster centroid and then recalculating centroids until convergence. The objective is to minimize within-cluster variance (sum of squared distances).  
+
+**Pros:**  
+- Simple and fast algorithm suitable for large datasets.  
+- Easy to implement and interpret clustering results.  
+- Scales well to many samples and dimensions.  
+
+**Cons:**  
+- Requires specifying the number of clusters (k) in advance.  
+- Sensitive to initial centroid placement; may converge to local minima.  
+- Assumes clusters are spherical and equally sized.  
+
+**Use Cases:**  
+
+Effective for market segmentation, customer profiling, image compression, and any application needing grouping of unlabeled data.
+
+---
+
+### Polynomial Regression  
+
+**Explanation:**  
+
+Polynomial Regression extends linear regression by modeling the relationship between independent variables and the target as an nth-degree polynomial. This allows capturing nonlinear patterns while still fitting a linear model in the transformed polynomial feature space. The model equation is:  
+$$
+\hat{y} = \theta_0 + \theta_1 x + \theta_2 x^2 + \cdots + \theta_n x^n
+  
+
+**Pros:**  
+- Captures nonlinear relationships without complex models.  
+- Simple extension of linear regression with interpretable coefficients.  
+- Flexible in modeling curves by adjusting polynomial degree.
+  
+**Cons:**  
+- Prone to overfitting if polynomial degree is too high.  
+- Can become numerically unstable for very high degrees.  
+- Interpretability decreases as degree increases.  
+**Use Cases:**
+  
+Useful in scenarios where relationships are polynomial but data is limited, such as modeling growth curves, time series trends, and physics-based processes.
+
+---
+
+### Naive Bayes  
+
+**Explanation:**  
+Naive Bayes classifiers are probabilistic models that apply Bayes’ theorem with a strong assumption of feature independence given the class label. Common variants include Gaussian, Multinomial, and Bernoulli Naive Bayes. Despite the “naive” assumption, the models are effective and computationally efficient for many classification tasks, especially with high-dimensional data such as text.  
+
+**Pros:**  
+- Fast, simple, and scalable to large datasets.  
+- Performs well with high-dimensional feature spaces.  
+- Robust to irrelevant features due to independence assumption.  
+
+**Cons:**  
+- Assumes feature independence, which is rarely true in practice.  
+- Can perform poorly if features are highly correlated.  
+- Less effective with continuous data unless using Gaussian variant.  
+
+**Use Cases:**  
+Widely applied in text classification (spam detection, sentiment analysis), document categorization, and real-time prediction applications requiring quick decisions.
 
 ---
 
