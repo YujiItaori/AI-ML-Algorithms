@@ -6,7 +6,6 @@ This repository contains implementations of various **Machine Learning algorithm
 
 ## Implementations
 
-
 ### TensorFlow
 
 **Explanation:**
@@ -38,6 +37,34 @@ Large framework size and overhead may be excessive for very small tasks.
 
 **Use Cases:**
 TensorFlow is widely used for a variety of machine learning applications—from natural language processing and computer vision to time-series forecasting and reinforcement learning. It is suitable for both research and production, powering everything from academic experiments to large-scale industrial AI deployments including mobile apps, web services, and edge computing solutions.
+
+---
+
+### PyTorch
+
+**Explanation:**
+PyTorch is an open-source deep learning framework developed by Facebook’s AI Research (FAIR) lab. It is designed to provide flexibility, speed, and ease of use for both researchers and practitioners. At its core, PyTorch uses a dynamic computation graph (define-by-run), meaning the graph is built on the fly as operations are executed. This makes debugging, experimentation, and prototyping more intuitive compared to static graph frameworks.
+
+PyTorch supports automatic differentiation through its `autograd` system, allowing seamless computation of gradients during backpropagation. It integrates well with Python and leverages popular libraries like NumPy, making it highly accessible to developers. The framework also supports deployment via **TorchScript** for optimized execution and **PyTorch Mobile** for running models on edge devices.
+
+With strong GPU acceleration (CUDA integration) and a rapidly growing ecosystem, PyTorch has become a standard in academic research, and its production-ready tools like **TorchServe** and **ONNX support** have led to wide adoption in industry as well.
+
+**Pros:**
+
+- Dynamic computation graph makes debugging and experimentation intuitive.  
+- Simple, Pythonic API that feels natural for Python developers.  
+- Strong community and wide adoption in both research and industry.  
+- Excellent GPU acceleration with CUDA.  
+- Supports deployment via TorchScript, PyTorch Mobile, and ONNX.  
+
+**Cons:**
+
+- May be slightly slower than static graph frameworks in certain production use cases.  
+- Smaller ecosystem compared to TensorFlow in terms of end-to-end tooling (though rapidly growing).  
+
+**Use Cases:**
+PyTorch is widely used in research and production for computer vision, natural language processing, reinforcement learning, generative models (GANs, VAEs), and scientific computing. Its flexibility and ease of use make it the preferred framework for researchers, while tools like TorchServe, TorchScript, and ONNX make it practical for deploying models in real-world applications.
+
 
 ---
 
@@ -332,6 +359,63 @@ Naive Bayes classifiers are probabilistic models that apply Bayes’ theorem wit
 
 **Use Cases:**  
 Widely applied in text classification (spam detection, sentiment analysis), document categorization, and real-time prediction applications requiring quick decisions.
+
+---
+
+# K-Nearest Neighbors (KNN)
+
+## KNN for Classification
+
+**Explanation:**
+K-Nearest Neighbors (KNN) for classification is a simple, non-parametric, and instance-based learning algorithm. It classifies a data point based on the majority vote of its *k* nearest neighbors in the feature space. The distance metric (commonly Euclidean, Manhattan, or Minkowski) determines which points are considered "closest."  
+
+Since KNN doesn’t explicitly learn model parameters, it can adapt well to complex decision boundaries, but its performance depends heavily on the choice of *k* and the distance metric. A smaller *k* may lead to overfitting, while a larger *k* can smooth decision boundaries but may underfit.
+
+**Pros:**
+- Easy to implement and understand.
+- No assumption about data distribution.
+- Naturally handles multi-class classification.
+- Effective for small datasets with clear separation.
+
+**Cons:**
+- Computationally expensive during inference, as it requires distance calculation for all points.
+- Performance degrades with high-dimensional data (curse of dimensionality).
+- Sensitive to irrelevant features and data scaling.
+- Requires careful choice of *k* to balance bias and variance.
+
+**Use Cases:**
+- Image recognition and classification.
+- Recommender systems (finding similar users/items).
+- Medical diagnosis and classification tasks.
+- Text classification such as spam detection.
+
+
+---
+
+## KNN for Regression
+
+**Explanation:**
+K-Nearest Neighbors can also be used for regression tasks by predicting the value of a new data point as the average (or weighted average) of the values of its *k* nearest neighbors. Instead of voting for a class, neighbors contribute their actual numerical values to the prediction.  
+
+Weighted KNN regression often assigns higher influence to closer neighbors, improving accuracy in datasets with local variations. However, as with classification, the algorithm is computationally intensive at inference and sensitive to noise.
+
+**Pros:**
+- Simple and intuitive for regression problems.
+- Naturally handles nonlinear relationships between features and output.
+- Weighted versions can improve performance by prioritizing closer neighbors.
+
+**Cons:**
+- Computationally heavy with large datasets.
+- Sensitive to noisy data points, which can skew averages.
+- Suffers from the curse of dimensionality.
+- Requires tuning of *k* and distance metric for optimal performance.
+
+**Use Cases:**
+- Predicting housing prices based on location and features.
+- Forecasting demand or sales in retail.
+- Predicting patient health metrics from medical records.
+- Environmental modeling (e.g., predicting pollution levels).
+
 
 ---
 
