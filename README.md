@@ -17,23 +17,23 @@ The platform integrates tightly with Keras, a high-level API that simplifies bui
 
 **Pros:**
 
-Highly scalable: runs on CPUs, GPUs, TPUs, and distributed environments.
+- Highly scalable: runs on CPUs, GPUs, TPUs, and distributed environments.
 
-Rich ecosystem including Keras, TensorFlow Lite, TensorFlow.js, and TensorFlow Extended (TFX) for production.
+- Rich ecosystem including Keras, TensorFlow Lite, TensorFlow.js, and TensorFlow Extended (TFX) for production.
 
-Supports flexible execution modes (eager and graph execution).
+- Supports flexible execution modes (eager and graph execution).
 
-Automatic differentiation simplifies gradient calculations during training.
+- Automatic differentiation simplifies gradient calculations during training.
 
-Extensive tooling for model building, debugging, and deployment.
+- Extensive tooling for model building, debugging, and deployment.
 
 **Cons:**
 
-Can have a steep learning curve due to its complexity and breadth.
+- Can have a steep learning curve due to its complexity and breadth.
 
-Debugging graph execution can be more challenging compared to eager mode or simpler frameworks.
+- Debugging graph execution can be more challenging compared to eager mode or simpler frameworks.
 
-Large framework size and overhead may be excessive for very small tasks.
+- Large framework size and overhead may be excessive for very small tasks.
 
 **Use Cases:**
 TensorFlow is widely used for a variety of machine learning applications—from natural language processing and computer vision to time-series forecasting and reinforcement learning. It is suitable for both research and production, powering everything from academic experiments to large-scale industrial AI deployments including mobile apps, web services, and edge computing solutions.
